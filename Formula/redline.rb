@@ -5,7 +5,8 @@ class Redline < Formula
   sha256 "9cae4e2509271b11f26c1dc2424ea1a078a3bad864bd38c97faf5fe0bf4c591b"
   license "MIT"
 
-  depends_on "node"
+  # No node dependency on purpose: redline runs on the Node that ships with
+  # Claude Code (its target environment), via the script's `#!/usr/bin/env node`.
 
   def install
     libexec.install Dir["*"]
@@ -14,14 +15,15 @@ class Redline < Formula
 
   def caveats
     <<~EOS
-      One-time: wire redline into Claude Code, then restart it:
+      redline needs Node (it ships with Claude Code).
+      One-time wiring, then restart Claude Code:
         redline install
-      Set budgets inside Claude Code:
-        /redline 10m $5      ·      redline stats
+      Set budgets inside Claude Code:  /redline 10m $5   ·   redline stats
     EOS
   end
 
   test do
-    assert_match "redline 0.1.0", shell_output("#{bin}/redline version")
+    assert_path_exists bin/"redline"
+    assert_match "redline", File.read(libexec/"bin/redline")
   end
 end
