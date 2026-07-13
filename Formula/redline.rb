@@ -1,8 +1,8 @@
 class Redline < Formula
   desc "Give your AI agent a time and money limit"
   homepage "https://github.com/sankalpgunturi/redline"
-  url "https://github.com/sankalpgunturi/redline/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "93f0bce9b6e5292eb4ca9a43a3ed728a44b5d6db5fc66372db762764f54e3774"
+  url "https://github.com/sankalpgunturi/redline/archive/refs/tags/v0.3.1.tar.gz"
+  sha256 "a80219d84e2007252a117a38f1b9fbfe18f8c0f39fe13e58d2144b0e9c61618c"
   license "MIT"
 
   # No node dependency on purpose: redline runs on the Node that ships with
